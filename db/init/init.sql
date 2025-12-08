@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS metal-center;
+GRANT ALL PRIVILEGES ON metal-center.* TO 'metal-center'@'%';
+FLUSH PRIVILEGES;
