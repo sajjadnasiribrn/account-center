@@ -1,5 +1,5 @@
 networks:
-  metal-center:
+  account-center:
     driver: bridge
     driver_opts:
       com.docker.network.bridge.name: br0
@@ -32,7 +32,7 @@ services:
       - redis
       - mysql
     networks:
-      - metal-center
+      - account-center
 
   certbot:
     build:
@@ -51,7 +51,7 @@ services:
       - app
     restart: "no"
     networks:
-      - metal-center
+      - account-center
 
 
   mysql:
@@ -61,8 +61,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: metal-center
-      MYSQL_USER: metal-center
+      MYSQL_DATABASE: account-center
+      MYSQL_USER: account-center
       MYSQL_PASSWORD: 12346789
       MYSQL_ROOT_PASSWORD: 12346789
       #      SERVICE_TAGS: dev
@@ -71,7 +71,7 @@ services:
       - ./db/mysql:/var/lib/mysql
       - ./db/init:/docker-entrypoint-initdb.d
     networks:
-      - metal-center
+      - account-center
 
   php:
     build:
@@ -90,7 +90,7 @@ services:
       - redis
       - mysql
     networks:
-      - metal-center
+      - account-center
 
   queue:
     build:
@@ -110,7 +110,7 @@ services:
       - redis
       - mysql
     networks:
-      - metal-center
+      - account-center
 
   redis:
     image: redis:alpine
@@ -121,7 +121,7 @@ services:
     volumes:
       - redis-data:/data
     networks:
-      - metal-center
+      - account-center
 
   composer:
     build:
@@ -133,7 +133,7 @@ services:
       - php
     entrypoint: [ 'composer', '--ignore-platform-reqs' ]
     networks:
-      - metal-center
+      - account-center
 
   npm:
     image: node:current-alpine
@@ -146,7 +146,7 @@ services:
     working_dir: /var/www/html
     entrypoint: [ 'npm' ]
     networks:
-      - metal-center
+      - account-center
 
   artisan:
     build:
@@ -159,7 +159,7 @@ services:
       - mysql
     entrypoint: [ 'php', '/var/www/html/artisan' ]
     networks:
-      - metal-center
+      - account-center
 
   mailpit:
     image: axllent/mailpit
@@ -175,7 +175,7 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
     networks:
-      - metal-center
+      - account-center
 
 #  minio:
 #    image: minio/minio:latest
@@ -183,14 +183,14 @@ services:
 #    volumes:
 #      - ./data/minio/dev:/data
 #    environment:
-#      MINIO_ROOT_USER: metal-center
+#      MINIO_ROOT_USER: account-center
 #      MINIO_ROOT_PASSWORD: 123456789
 #    ports:
 #      - "9002:9000"
 #      - "9001:9001"
 #    restart: unless-stopped
 #    networks:
-#      - metal-center
+#      - account-center
 volumes:
   redis-data:
   certbot_www:
