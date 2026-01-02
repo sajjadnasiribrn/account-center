@@ -18,7 +18,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
 
             $table->string('phone', 20)->unique()->nullable();
-            $table->timestamp('phone_verified_at')->nullable();
             $table->string('google_id')->unique()->nullable();
 
             $table->rememberToken();

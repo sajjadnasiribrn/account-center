@@ -1,6 +1,12 @@
 /* Import Tailwind CSS framework */
 @import 'tailwindcss';
 
+/* Scan Blade templates and Flowbite source for class usage */
+@source '../views/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../node_modules/flowbite/**/*.js';
+
 /* Custom theme configuration with system font stack */
 @theme {
     --font-sans: 'Inter var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -10,6 +16,7 @@
 /* Include Tailwind CSS plugins for enhanced form styling and typography */
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+@plugin 'flowbite/plugin';
 
 /* Remove default red box-shadow on invalid form elements */
 input:invalid, textarea:invalid, select:invalid {
