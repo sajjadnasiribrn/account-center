@@ -80,6 +80,33 @@ return [
 
     'locale' => env('APP_LOCALE', 'en'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Application Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | Define the locales that your application supports. These values
+    | are used for validation when users switch languages.
+    |
+    */
+    'supported_locales' => [
+        'fa' => 'Persian',
+        'en' => 'English',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | RTL Locales
+    |--------------------------------------------------------------------------
+    |
+    | Define the locales that should render the storefront in right-to-left
+    | direction. This is used to toggle HTML direction and related styles.
+    |
+    */
+    'rtl_locales' => [
+        'fa',
+    ],
+
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),

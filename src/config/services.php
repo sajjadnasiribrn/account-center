@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID', ''),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET', ''),
+        'redirect' => env('GOOGLE_REDIRECT_URI', rtrim(env('APP_URL', 'http://localhost'), '/').'/auth/google/callback'),
+    ],
+
+    'kavenegar' => [
+        'token' => env('KAVENEGAR_TOKEN', env('KAVEHNEGAR_TOKEN', '')),
+        'base_url' => rtrim(env('KAVENEGAR_BASE_URL', 'https://api.kavenegar.com/v1/'), '/').'/',
+        'template' => env('KAVENEGAR_TEMPLATE', 'auth'),
+        'lookup_endpoint' => env('KAVENEGAR_LOOKUP_ENDPOINT', 'verify/lookup.json'),
+    ],
+
 ];

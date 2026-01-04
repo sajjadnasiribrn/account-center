@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'google_id',
+        'phone_verified_at',
     ];
 
     /**
@@ -42,7 +45,16 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'phone_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Phone number used by the Kavenegar notification channel.
+     */
+    public function routeNotificationForKavenegar(): ?string
+    {
+        return $this->phone;
     }
 }
