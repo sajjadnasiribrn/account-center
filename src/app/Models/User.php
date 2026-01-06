@@ -23,7 +23,9 @@ class User extends Authenticatable
         'password',
         'phone',
         'google_id',
+        'email_verified_at',
         'phone_verified_at',
+        'is_admin',
     ];
 
     /**
@@ -47,6 +49,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'phone_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 

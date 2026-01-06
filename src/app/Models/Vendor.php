@@ -43,7 +43,6 @@ class Vendor extends Model implements HasMedia
         return [
             'is_active' => 'boolean',
             'commission_percent' => 'decimal:2',
-            'verified_at' => 'datetime',
             'support' => 'array',
         ];
     }
@@ -64,11 +63,6 @@ class Vendor extends Model implements HasMedia
     }
 
     protected function updatedAt(): Attribute
-    {
-        return Attribute::get(fn ($value) => $this->localizeDate($value));
-    }
-
-    protected function verifiedAt(): Attribute
     {
         return Attribute::get(fn ($value) => $this->localizeDate($value));
     }

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->json('description')->nullable();
             $table->string('slug', 190);
             $table->boolean('is_active')->default(true);
-            $table->dateTime('verified_at')->nullable();
             $table->decimal('commission_percent', 5, 2);
             $table->json('support')->default(json_encode(Vendor::defaultSupport()));
             $table->timestamps();

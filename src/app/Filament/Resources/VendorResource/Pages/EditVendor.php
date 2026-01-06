@@ -18,15 +18,20 @@ class EditVendor extends EditRecord
 
     protected function syncProfileImage(): void
     {
-        $state = $this->form->getState();
+        $state = $this->form->getRawState();
         $path = Arr::first(Arr::wrap($state['profile_image'] ?? null));
+        $path = is_string($path) ? ltrim($path, '/') : $path;
 
-        if (blank($path)) {
+        if (blank($path) || ! str_starts_with($path, 'vendors/profile/')) {
             return;
         }
 
-        $this->record
+        $media = $this->record
             ->addMediaFromDisk($path, 'public')
             ->toMediaCollection(Vendor::PROFILE_IMAGE_COLLECTION);
+
+        $this->form->fill([
+            'profile_image' => [$media->getPathRelativeToRoot()],
+        ]);
     }
 }
