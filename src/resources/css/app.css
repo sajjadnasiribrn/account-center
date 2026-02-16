@@ -1,5 +1,6 @@
 /* Import Tailwind CSS framework */
 @import 'tailwindcss';
+@import '@mdi/font/css/materialdesignicons.css';
 
 /* Scan Blade templates and Flowbite source for class usage */
 @source '../views/**/*.blade.php';
@@ -11,6 +12,20 @@
 @theme {
     --font-sans: 'Inter var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-dark-950: #0B0E14;
+    --color-dark-900: #0F1420;
+    --color-dark-800: #151B2C;
+    --color-dark-700: #1C2336;
+    --color-dark-600: #232B42;
+    --color-brand-300: #FFC08A;
+    --color-brand-400: #FF9A4D;
+    --color-brand-500: #FF7A00;
+    --color-brand-600: #E66E00;
+    --color-brand-700: #CC6200;
+    --color-success: #22C55E;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #3B82F6;
 }
 
 /* Include Tailwind CSS plugins for enhanced form styling and typography */

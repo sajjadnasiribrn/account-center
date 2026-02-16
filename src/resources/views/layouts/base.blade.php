@@ -14,7 +14,7 @@
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        {{-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> --}}
 
         <link
             href="{{ asset('css/fonts.css') }}"

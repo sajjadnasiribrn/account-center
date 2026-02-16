@@ -38,6 +38,16 @@
     url('../fonts/IRANYekan/ttf/iranyekanwebregular(fanum).ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Material Design Icons Legacy';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/icons/materialdesignicons-webfont.ttf') format('truetype'),
+        url('../fonts/icons/materialdesignicons-webfont.woff2') format('woff2'),
+        url('../fonts/icons/materialdesignicons-webfont.woff') format('woff');
+}
+
 body {
     font-family: iranyekan, serif !important;
 }
