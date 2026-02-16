@@ -1,4 +1,6 @@
 .env
+src/.cursor
+src/.junie
 src/node_modules
 src/public/hot
 src/public/img/*
